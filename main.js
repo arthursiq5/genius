@@ -74,3 +74,18 @@ const nextLevel = () => {
     score++;
     shuffleOrder();
 }
+
+const gameOver = () => {
+    alert(`Pontuação: ${score}!\nVocê perdeu o jogo!\nClique em OK para iniciar um novo jogo`);
+    order = [];
+    clickedOrder = [];
+
+    playGame();
+}
+
+const playGame = () => {
+    alert('Bem vindo ao Gênius! Iniciando novo jogo!');
+    score = 0;
+
+    nextLevel();
+}
