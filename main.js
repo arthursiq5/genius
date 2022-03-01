@@ -24,13 +24,13 @@ const shuffleOrder = () => {
 }
 
 const lightColor = (element, number) => {
-    let number = number + 500
+    let time = number + 500
     setTimeout(() => {
         element.classList.add('selected')
-    }, number - 250)
+    }, time - 250)
     setTimeout(() => {
         element.classList.remove('selected')
-    }, number)
+    }, time)
 }
 
 const checkOrder = () => {
@@ -89,3 +89,10 @@ const playGame = () => {
 
     nextLevel();
 }
+
+green.onclick = () => click(0);
+red.onclick = () => click(1);
+yellow.onclick = () => click(2);
+blue.onclick = () => click(3);
+
+playGame();
