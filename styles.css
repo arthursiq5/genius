@@ -24,7 +24,7 @@ body {
 }
 
 .blue {
-    grid-area: blue;
+    grid-area: azul;
     background-color: blue;
     border-bottom-right-radius: 100%;
 }
