@@ -69,3 +69,8 @@ const createColorElement = (color) => {
         return blue;
     }
 }
+
+const nextLevel = () => {
+    score++;
+    shuffleOrder();
+}
