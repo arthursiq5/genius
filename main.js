@@ -1,5 +1,5 @@
 let order = []
-let clickorder = []
+let clickOrder = []
 let score = 0
 
 // 0 - verde
@@ -15,44 +15,43 @@ const yellow = document.querySelector('.amarelo')
 const shuffleOrder = () => {
     let colorOrder = Math.floor(Math.random() * 4)
     order[order.length] = colorOrder
-    clickedOrder = []
+    clickOrder = []
 
     for (let i in order) {
         let elementColor = createColorElement(order[i])
-        lightColor(elementColor, Number(i + 1))
+        lightColor(elementColor, Number(i) + 1)
     }
 }
 
 const lightColor = (element, number) => {
-    let time = number + 500
+    let time = number * 500
     setTimeout(() => {
         element.classList.add('selected')
     }, time - 250)
     setTimeout(() => {
         element.classList.remove('selected')
-    }, time)
+    }, time + 250)
 }
 
-const checkOrder = () => {
-    for (let i in order) {
-        if (clickedOrder[i] !== order[i]) {
-            localStorage()
-            break
+let checkOrder = () => {
+    for(let i in clickOrder) {
+        if(clickOrder[i] != order[i]) {
+            gameOver();
+            break;
         }
     }
-
-    if (clickorder.length === order.length) {
-        alert (`Pontuação: ${score}\nVocê acertou! Iniciando próximo nível`)
-        nextLevel()
+    if(clickOrder.length == order.length) {
+        alert(`Pontuação: ${score}\nVocê acertou! Iniciando próximo nível!`);
+        nextLevel();
     }
 }
 
 const click = (color) => {
-    clickorder[clickedOrder.length] = color
-    elementColor(color).classList.add('selected')
+    clickOrder[clickOrder.length] = color
+    createColorElement(color).classList.add('selected')
 
     setTimeout(() => {
-        elementColor(color).classList.remove('selected')
+        createColorElement(color).classList.remove('selected')
     }, 250)
 
     checkOrder()
@@ -78,7 +77,7 @@ const nextLevel = () => {
 const gameOver = () => {
     alert(`Pontuação: ${score}!\nVocê perdeu o jogo!\nClique em OK para iniciar um novo jogo`);
     order = [];
-    clickedOrder = [];
+    clickOrder = [];
 
     playGame();
 }
