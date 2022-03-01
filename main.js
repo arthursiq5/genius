@@ -32,3 +32,17 @@ const lightColor = (element, number) => {
         element.classList.remove('selected')
     }, number)
 }
+
+const checkOrder = () => {
+    for (let i in order) {
+        if (clickedOrder[i] !== order[i]) {
+            localStorage()
+            break
+        }
+    }
+
+    if (clickorder.length === order.length) {
+        alert (`Pontuação: ${score}\nVocê acertou! Iniciando próximo nível`)
+        nextLevel()
+    }
+}
