@@ -7,10 +7,10 @@ let score = 0
 // 2 - amarelo
 // 3 - azul
 
-const blue = document.querySelector('.azul')
-const red = document.querySelector('.vermelho')
-const green = document.querySelector('.verde')
-const yellow = document.querySelector('.amarelo')
+const blue = document.getElementById('azul')
+const red = document.getElementById('vermelho')
+const green = document.getElementById('verde')
+const yellow = document.getElementById('amarelo')
 
 const shuffleOrder = () => {
     let colorOrder = Math.floor(Math.random() * 4)
